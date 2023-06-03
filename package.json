@@ -12,7 +12,17 @@
     "devDependencies": {
         "axios": "^0.21",
         "laravel-mix": "^6.0.6",
+        "laravel-mix-svelte": "^0.5.0",
         "lodash": "^4.17.19",
-        "postcss": "^8.1.14"
+        "postcss": "^8.1.14",
+        "resolve-url-loader": "^5.0.0",
+        "sass": "^1.62.1",
+        "sass-loader": "^12.6.0",
+        "svelte": "^3.1.0",
+        "svelte-loader": "^2.13.4"
+    },
+    "dependencies": {
+        "agnostic-svelte": "^1.1.27",
+        "laravel-mix-svelte": "github:wewowweb/laravel-mix-svelte"
     }
 }
