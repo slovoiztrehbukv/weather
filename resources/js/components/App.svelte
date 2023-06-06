@@ -28,6 +28,10 @@
             label: 'Dubai',
             value: 'dubai',
         },
+        {
+            label: 'ElseCity',
+            value: 'else',
+        },
     ]
 
     const updateData = val => {
@@ -42,13 +46,20 @@
 </script>
 
 <main>
-    current city is {city}
-    <Select
-        bind:selected={city}
-        on:selected={(e) => updateData(e.detail)}
-        uniqueId="sel1"
-        name="select1"
-        labelCopy="Select the best tennis player of all time"
-        options={cities}
-    />
+	<div class="container white">
+		<h1>Weather</h1>
+		<h2>choose a city</h2>
+		<div class="search-box">
+			<div class="search-icon"><i class="fa fa-search search-icon"></i></div>
+                <Select
+                    bind:selected={city}
+                    on:selected={(e) => updateData(e.detail)}
+                    uniqueId="sel1"
+                    name="select1"
+                    labelCopy="Select the best tennis player of all time"
+                    options={cities}
+                />
+			<div class="go-icon"><i class="fa fa-arrow-right"></i></div>
+		</div>
+	</div>
 </main>
