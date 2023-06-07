@@ -23,6 +23,7 @@
     },
     "dependencies": {
         "agnostic-svelte": "^1.1.27",
-        "laravel-mix-svelte": "github:wewowweb/laravel-mix-svelte"
+        "laravel-mix-svelte": "github:wewowweb/laravel-mix-svelte",
+        "svelte-select": "^5.6.1"
     }
 }

@@ -18,7 +18,6 @@ class CitiesSeeder extends Seeder
             \Illuminate\Support\Facades\DB::unprepared(file_get_contents($path));
         } catch (\Throwable $e) {
             $this->command->warn($e->getMessage());
-
         }
 
         $this->command->info('Cities table seeded');
