@@ -2,33 +2,92 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\Weather\Sources\SevenTimer;
+use App\Http\Requests\GetWeatherByCoordsRequest;
 use App\Services\Weather\WeatherCompositionService;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Http\Request;
 
 class WeatherController extends Controller
 {
-    public function city(string $city, WeatherCompositionService $weatherService)
+    public function byCoords(GetWeatherByCoordsRequest $request, WeatherCompositionService $weatherService)
     {
-        return response()->json($weatherService->getCityDatas($city));
-    }
+        // TODO UNMOCK ME
+        return [
+            '7Timer' => [
+                'data' => [
+                    '09.06' => [
+                        'temp' => 16.9
+                    ],
+                    '10.06' => [
+                        'temp' => 12.4
+                    ],
+                    '11.06' => [
+                        'temp' => 19.1
+                    ],
+                    '12.06' => [
+                        'temp' => -4.0
+                    ],
+                    '13.06' => [
+                        'temp' => -4.0
+                    ],
+                    '14.06' => [
+                        'temp' => -4.0
+                    ],
+                    '15.06' => [
+                        'temp' => -4.2
+                    ],
+                ],
+            ],
+            'SecondOne' => [
+                'data' => [
+                    '09.06' => [
+                        'temp' => 16.9
+                    ],
+                    '10.06' => [
+                        'temp' => 12.4
+                    ],
+                    '11.06' => [
+                        'temp' => 19.1
+                    ],
+                    '12.06' => [
+                        'temp' => -4.0
+                    ],
+                    '13.06' => [
+                        'temp' => -4.0
+                    ],
+                    '14.06' => [
+                        'temp' => -4.0
+                    ],
+                    '15.06' => [
+                        'temp' => -4.1
+                    ],
+                ],
+            ],
+            'avg' => [
+                'data' => [
+                    '09.06' => [
+                        'temp' => 16.9
+                    ],
+                    '10.06' => [
+                        'temp' => 12.4
+                    ],
+                    '11.06' => [
+                        'temp' => 19.1
+                    ],
+                    '12.06' => [
+                        'temp' => -4.0
+                    ],
+                    '13.06' => [
+                        'temp' => -4.0
+                    ],
+                    '14.06' => [
+                        'temp' => -4.0
+                    ],
+                    '15.06' => [
+                        'temp' => -4.3
+                    ],
+                ],
+            ],
+        ];
 
-    public function cities(Request $request)
-    {
-        $q = $request->get('q') ?? '';
-        $cities = \App\Models\City::where('city', 'ILIKE', "%$q%")
-            ->take(6)
-            ->get();
-
-        return $this->transformCitiesToDropdownList($cities);
-    }
-
-    private function transformCitiesToDropdownList(Collection $cities) // TODO TO HELPER SERVICE
-    {
-        return $cities->map(fn($c)=>[
-            'value' => $c['latitude'] . '|' . $c['longitude'],
-            'label' => $c['city'],
-        ]);
+        return response()->json($weatherService->getCityDatas($request));
     }
 }

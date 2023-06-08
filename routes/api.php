@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CityController;
 use App\Http\Controllers\WeatherController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -15,5 +16,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/weather/{city}', [WeatherController::class, 'city']);
-Route::get('/cities', [WeatherController::class, 'cities']);
+Route::post('/weather', [WeatherController::class, 'byCoords']);
+Route::get('/cities', [CityController::class, 'list']);
