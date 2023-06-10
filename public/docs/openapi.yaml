@@ -1,0 +1,144 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/weather/one-week:
+    post:
+      summary: ''
+      operationId: postApiWeatherOneWeek
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    name: ''
+                    data: []
+                  -
+                    name: ''
+                    data: []
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                lat:
+                  type: number
+                  description: ''
+                  example: 742.01124
+                lon:
+                  type: number
+                  description: ''
+                  example: 45318.9104
+              required:
+                - lat
+                - lon
+      security: []
+  /api/weather/one-week/headers:
+    get:
+      summary: ''
+      operationId: getApiWeatherOneWeekHeaders
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    label: ''
+                    key: name
+                  -
+                    label: '10.06'
+                  -
+                    label: '11.06'
+                  -
+                    label: '12.06'
+                  -
+                    label: '13.06'
+                  -
+                    label: '14.06'
+                  -
+                    label: '15.06'
+                  -
+                    label: '16.06'
+      tags:
+        - Endpoints
+      security: []
+  /api/cities:
+    get:
+      summary: ''
+      operationId: getApiCities
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    value: 34.5166667|69.1833344
+                    label: 'Kabul, Afghanistan'
+                  -
+                    value: 31.61|65.6999969
+                    label: 'Kandahar, Afghanistan'
+                  -
+                    value: 36.7069444|67.1122208
+                    label: 'Mazar-e Sharif, Afghanistan'
+                  -
+                    value: 34.34|62.1899986
+                    label: 'Herat, Afghanistan'
+                  -
+                    value: 34.42|70.4499969
+                    label: 'Jalalabad, Afghanistan'
+                  -
+                    value: 36.72|68.8600006
+                    label: 'Konduz, Afghanistan'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: q
+        description: 'Optional parameter. The search query.'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: moscow
+tags:
+  -
+    name: Endpoints
+    description: ''

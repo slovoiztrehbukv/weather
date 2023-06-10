@@ -15,8 +15,8 @@ class OneWeekTableRow extends JsonResource
     public function toArray($request)
     {
         return [
-            'name' => $this['name'],
-            'data' => $this['data'],
+            'name' => $this['name'] ?? '',
+            'data' => $this['data'] ?? [],
         ];
     }
 

@@ -8,6 +8,10 @@ use App\Services\Weather\WeatherCompositionService;
 
 class WeatherController extends Controller
 {
+
+    /**
+    * @apiResourceCollection  App\Http\Resources\OneWeekTableRow
+    */
     public function oneWeekByCoords(GetWeatherByCoordsRequest $request, WeatherCompositionService $weatherService)
     {
         return $weatherService->getOneWeekPlaceDatas(

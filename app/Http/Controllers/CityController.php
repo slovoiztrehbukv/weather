@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Collection;
 
 class CityController extends Controller
 {
+    /**
+    * @urlParam q The search query. Example: moscow
+    */
     public function list(Request $request)
     {
         $q = $request->get('q') ?? '';
