@@ -1,9 +1,8 @@
 <script>
+    import { onMount } from 'svelte';
     import { Table } from "agnostic-svelte";
     import Select from 'svelte-select';
     import 'agnostic-svelte/css/common.min.css';
-
-    let loaded = false
 
     const createRow = (
         title,
@@ -26,49 +25,8 @@
     });
 
     let tableArgs = {
+        headers: [],
         rows: [],
-        headers: [
-            {
-                label: 'service',
-                key: 'service',
-                sortable: false,
-            },
-            {
-                label: 'day1',
-                key: 'day1',
-                sortable: false,
-            },
-            {
-                label: 'day2',
-                key: 'day2',
-                sortable: false,
-            },
-            {
-                label: 'day3',
-                key: 'day3',
-                sortable: false,
-            },
-            {
-                label: 'day4',
-                key: 'day4',
-                sortable: false,
-            },
-            {
-                label: 'day5',
-                key: 'day5',
-                sortable: false,
-            },
-            {
-                label: 'day6',
-                key: 'day6',
-                sortable: false,
-            },
-            {
-                label: 'day7',
-                key: 'day7',
-                sortable: false,
-            },
-        ]
     }
 
 
@@ -79,7 +37,7 @@
     const updateData = val => {
         const [lat, lon] = val.split('|')
 
-        fetch(`/api/weather`, {
+        fetch(`/api/weather/one-week`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -90,13 +48,14 @@
             })
         })
             .then(res => res.json())
-            .then(res => {
-                tableArgs.rows = Object.entries(res)
-                    .map(
-                        ([s, {data}]) => createRow(s, ...Object.values(data).map(v => v.temp))
-                    )
-            })
+            .then(rows => {tableArgs.rows = rows.map(r => createRow(r.name, ...r.data))})
     }
+
+    onMount(() => {
+        fetch(`/api/weather/one-week/headers`)
+            .then(res => res.json())
+            .then(headers => {tableArgs.headers = headers})
+    })
 </script>
 
 <main>
@@ -109,7 +68,7 @@
                 on:select={e => updateData(e.detail.value)}
             />
         </div>
-        <div>
+        <div class="bg-white mt-2 p-1">
             <Table {...tableArgs} />
         </div>
 	</div>

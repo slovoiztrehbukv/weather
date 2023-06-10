@@ -194,3 +194,15 @@ html, body {
 .black {
     color: #333 !important
 }
+
+.bg-white {
+    background: #fff !important;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+.p-1 {
+    padding: 1rem;
+}

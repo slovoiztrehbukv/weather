@@ -16,5 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/weather', [WeatherController::class, 'byCoords']);
+Route::post('/weather/one-week', [WeatherController::class, 'oneWeekByCoords']);
+Route::get('/weather/one-week/headers', [WeatherController::class, 'oneWeekTableHeaders']);
 Route::get('/cities', [CityController::class, 'list']);

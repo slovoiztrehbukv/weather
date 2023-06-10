@@ -2,18 +2,44 @@
 
 namespace App\Services\Weather;
 
-use App\Services\Weather\Sources\Contracts\ICityRequestable;
+use App\Http\Resources\OneWeekTableRow;
+use App\Services\Weather\Sources\Contracts\IAdaptable;
+use App\Services\Weather\Sources\Contracts\IByCoordsRequestable;
+use App\Services\Weather\Table\Helper as TableHelper;
 
 class WeatherCompositionService {
-    public function getCityDatas(string $city)
+    public function getOneWeekPlaceDatas(string $lat, string $lon, bool $withAvg = true)
     {
-        $sources = array_filter(config('weather.sources.enabled'), fn($source) => (new $source) instanceof ICityRequestable);
+        $sources = array_filter(
+            config('weather.sources.enabled'),
+            function($className) {
+                $instance = new $className;
 
-        return array_map(
-            function($source) use ($city) {
-                return app()->make($source)->getCityData($city);
+                if (!$instance instanceof IByCoordsRequestable || !$instance instanceof IAdaptable) return false;
+
+                return true;
+            }
+        );
+
+        $forecasts = array_map(
+            function($className) use ($lat, $lon) {
+                /**
+                * @var Source $source
+                 */
+                $source = app()->make($className);
+
+                return $source
+                    ->getAdapter()
+                    ->toOneWeekTableRow(
+                        $source->getOneWeekPlaceForecast($lat, $lon)
+                    );
             },
             $sources
         );
+
+        return OneWeekTableRow::collection([
+            ...$forecasts,
+            TableHelper::getOneWeekAvg($forecasts)
+        ]);
     }
 }
