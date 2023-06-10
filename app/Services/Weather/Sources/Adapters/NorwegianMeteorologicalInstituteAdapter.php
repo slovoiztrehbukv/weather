@@ -4,6 +4,7 @@ namespace App\Services\Weather\Sources\Adapters;
 
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
+use RuntimeException;
 
 class NorwegianMeteorologicalInstituteAdapter extends Adapter {
     public function getSourceName() : string
@@ -22,8 +23,11 @@ class NorwegianMeteorologicalInstituteAdapter extends Adapter {
                 'date' => explode('T', $item['time'])[0],
                 'temp' => $item['data']['instant']['details']['air_temperature'],
             ],
-            $srcData['properties']['timeseries']
+            $srcData['properties']['timeseries'] ?? []
         );
+
+        if (!$data) throw new RuntimeException("There is no data for " . json_encode($srcData));
+
         $data = new Collection($data);
 
         for ($i = 0; $i < 7; $i++) {

@@ -3,6 +3,7 @@
 namespace App\Services\Weather\Table;
 
 use Illuminate\Support\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 
 class Helper {
     public static function getOneWeekTableHeaders()
@@ -42,9 +43,17 @@ class Helper {
         return [
             'name' => 'Average',
             'data' => array_map(
-                fn ($t) => number_format($t / count($forecasts), 1),
+                fn ($t) => (float) number_format($t / count($forecasts), 1),
                 $total
             ),
         ];
+    }
+
+    public static function transformCitiesToDropdownList(Collection $cities)
+    {
+        return $cities->map(fn($c)=>[
+            'value' => $c['latitude'] . '|' . $c['longitude'],
+            'label' => $c['name'] . ', ' . $c['country'],
+        ]);
     }
 }

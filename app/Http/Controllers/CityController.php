@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\Weather\Table\Helper;
 use Illuminate\Http\Request;
-use Illuminate\Database\Eloquent\Collection;
 
 class CityController extends Controller
 {
@@ -12,19 +12,12 @@ class CityController extends Controller
     */
     public function list(Request $request)
     {
+        // TODO to repository service
         $q = $request->get('q') ?? '';
-        $cities = \App\Models\City::where('city', 'ILIKE', "%$q%")
+        $cities = \App\Models\City::where('name', 'ILIKE', "%$q%")
             ->take(6)
             ->get();
 
-        return $this->transformCitiesToDropdownList($cities);
-    }
-
-    private function transformCitiesToDropdownList(Collection $cities) // TODO TO HELPER SERVICE
-    {
-        return $cities->map(fn($c)=>[
-            'value' => $c['latitude'] . '|' . $c['longitude'],
-            'label' => $c['city'] . ', ' . $c['country'],
-        ]);
+        return Helper::transformCitiesToDropdownList($cities);
     }
 }

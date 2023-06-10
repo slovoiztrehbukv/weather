@@ -7,85 +7,6 @@ servers:
   -
     url: 'http://localhost'
 paths:
-  /api/weather/one-week:
-    post:
-      summary: ''
-      operationId: postApiWeatherOneWeek
-      description: ''
-      parameters: []
-      responses:
-        200:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                example:
-                  -
-                    name: ''
-                    data: []
-                  -
-                    name: ''
-                    data: []
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                lat:
-                  type: number
-                  description: ''
-                  example: 742.01124
-                lon:
-                  type: number
-                  description: ''
-                  example: 45318.9104
-              required:
-                - lat
-                - lon
-      security: []
-  /api/weather/one-week/headers:
-    get:
-      summary: ''
-      operationId: getApiWeatherOneWeekHeaders
-      description: ''
-      parameters: []
-      responses:
-        200:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                example:
-                  -
-                    label: ''
-                    key: name
-                  -
-                    label: '10.06'
-                  -
-                    label: '11.06'
-                  -
-                    label: '12.06'
-                  -
-                    label: '13.06'
-                  -
-                    label: '14.06'
-                  -
-                    label: '15.06'
-                  -
-                    label: '16.06'
-      tags:
-        - Endpoints
-      security: []
   /api/cities:
     get:
       summary: ''
@@ -138,6 +59,85 @@ paths:
           present:
             summary: 'When the value is present'
             value: moscow
+  /api/weather/one-week:
+    post:
+      summary: ''
+      operationId: postApiWeatherOneWeek
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    name: ''
+                    data: []
+                  -
+                    name: ''
+                    data: []
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                lat:
+                  type: number
+                  description: ''
+                  example: 288968.504
+                lon:
+                  type: number
+                  description: ''
+                  example: 0.0
+              required:
+                - lat
+                - lon
+      security: []
+  /api/weather/one-week/headers:
+    get:
+      summary: ''
+      operationId: getApiWeatherOneWeekHeaders
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    label: ''
+                    key: name
+                  -
+                    label: '10.06'
+                  -
+                    label: '11.06'
+                  -
+                    label: '12.06'
+                  -
+                    label: '13.06'
+                  -
+                    label: '14.06'
+                  -
+                    label: '15.06'
+                  -
+                    label: '16.06'
+      tags:
+        - Endpoints
+      security: []
 tags:
   -
     name: Endpoints

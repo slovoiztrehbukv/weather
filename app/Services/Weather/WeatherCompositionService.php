@@ -31,7 +31,7 @@ class WeatherCompositionService {
                 return $source
                     ->getAdapter()
                     ->toOneWeekTableRow(
-                        $source->getOneWeekPlaceForecast($lat, $lon)
+                        $source->getOneWeekPlaceForecast($lat, $lon) ?? []
                     );
             },
             $sources

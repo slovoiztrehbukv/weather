@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "1724f8fe-661f-4f6e-968b-991458159a5c",
+        "_postman_id": "6099ab61-b091-43ca-978e-4f4293c71cb7",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -19,6 +19,70 @@
             "name": "Endpoints",
             "description": "",
             "item": [
+                {
+                    "name": "GET api\/cities",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/cities",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/cities",
+                            "variable": [
+                                {
+                                    "id": "q",
+                                    "key": "q",
+                                    "value": "moscow",
+                                    "description": "The search query."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "[{\"value\":\"34.5166667|69.1833344\",\"label\":\"Kabul, Afghanistan\"},{\"value\":\"31.61|65.6999969\",\"label\":\"Kandahar, Afghanistan\"},{\"value\":\"36.7069444|67.1122208\",\"label\":\"Mazar-e Sharif, Afghanistan\"},{\"value\":\"34.34|62.1899986\",\"label\":\"Herat, Afghanistan\"},{\"value\":\"34.42|70.4499969\",\"label\":\"Jalalabad, Afghanistan\"},{\"value\":\"36.72|68.8600006\",\"label\":\"Konduz, Afghanistan\"}]",
+                            "name": ""
+                        }
+                    ]
+                },
                 {
                     "name": "POST api\/weather\/one-week",
                     "request": {
@@ -41,7 +105,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"lat\":742.01124,\"lon\":45318.9104}"
+                            "raw": "{\"lat\":288968.504,\"lon\":0}"
                         },
                         "description": "",
                         "auth": {
@@ -100,7 +164,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "57"
+                                    "value": "58"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -109,70 +173,6 @@
                             ],
                             "code": 200,
                             "body": "[{\"label\":\"\",\"key\":\"name\"},{\"label\":\"10.06\"},{\"label\":\"11.06\"},{\"label\":\"12.06\"},{\"label\":\"13.06\"},{\"label\":\"14.06\"},{\"label\":\"15.06\"},{\"label\":\"16.06\"}]",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "GET api\/cities",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/cities",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/cities",
-                            "variable": [
-                                {
-                                    "id": "q",
-                                    "key": "q",
-                                    "value": "moscow",
-                                    "description": "The search query."
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "x-ratelimit-limit",
-                                    "value": "60"
-                                },
-                                {
-                                    "key": "x-ratelimit-remaining",
-                                    "value": "56"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 200,
-                            "body": "[{\"value\":\"34.5166667|69.1833344\",\"label\":\"Kabul, Afghanistan\"},{\"value\":\"31.61|65.6999969\",\"label\":\"Kandahar, Afghanistan\"},{\"value\":\"36.7069444|67.1122208\",\"label\":\"Mazar-e Sharif, Afghanistan\"},{\"value\":\"34.34|62.1899986\",\"label\":\"Herat, Afghanistan\"},{\"value\":\"34.42|70.4499969\",\"label\":\"Jalalabad, Afghanistan\"},{\"value\":\"36.72|68.8600006\",\"label\":\"Konduz, Afghanistan\"}]",
                             "name": ""
                         }
                     ]

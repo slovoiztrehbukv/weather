@@ -1,4 +1,4 @@
-INSERT INTO cities (id, country, city, latitude, longitude, altitude) VALUES
+INSERT INTO cities (id, country, name, latitude, longitude, altitude) VALUES
 (1, 'Afghanistan', 'Kabul', 34.5166667, 69.1833344, 1808.0),
 (2, 'Afghanistan', 'Kandahar', 31.6100000, 65.6999969, 1015.0),
 (3, 'Afghanistan', 'Mazar-e Sharif', 36.7069444, 67.1122208, 369.0),
@@ -805,7 +805,7 @@ INSERT INTO cities (id, country, city, latitude, longitude, altitude) VALUES
 (804, 'Austria', 'Fohnsdorf', 47.2000000, 14.6833334, 723.0),
 (805, 'Austria', 'Wolfurt', 47.4666667, 9.7500000, 529.0),
 (806, 'Austria', 'Maria Enzersdorf', 48.1000000, 16.2833328, 214.0);
-INSERT INTO cities (id, country, city, latitude, longitude, altitude) VALUES
+INSERT INTO cities (id, country, name, latitude, longitude, altitude) VALUES
 (807, 'Austria', 'Deutschlandsberg', 46.8152778, 15.2222223, 372.0),
 (808, 'Azerbaijan', 'Baku', 40.3952778, 49.8822212, 30.0),
 (809, 'Azerbaijan', 'Ganca', 40.6827778, 46.3605537, 409.0),
@@ -1602,7 +1602,7 @@ INSERT INTO cities (id, country, city, latitude, longitude, altitude) VALUES
 (1600, 'United Kingdom', 'Southend-on-Sea', 51.5378207, 0.7143259, 1.0),
 (1601, 'United Kingdom', 'Swindon', 51.5166667, -1.7833333, 153.0),
 (1602, 'United Kingdom', 'Oxford', 51.7522210, -1.2559605, 66.0);
-INSERT INTO cities (id, country, city, latitude, longitude, altitude) VALUES
+INSERT INTO cities (id, country, name, latitude, longitude, altitude) VALUES
 (1603, 'United Kingdom', 'Dundee', 56.5000000, -2.9666667, 76.0),
 (1604, 'United Kingdom', 'Poole', 50.7166667, -2.0000000, 1.0),
 (1605, 'United Kingdom', 'Huddersfield', 53.6500000, -1.7833333, 84.0),
@@ -2423,7 +2423,7 @@ INSERT INTO cities (id, country, city, latitude, longitude, altitude) VALUES
 (2420, 'Colombi', 'Copacabana', 6.3488889, -75.5130539, 1498.0),
 (2421, 'Colombi', 'Plato', 9.7919444, -74.7872238, 18.0),
 (2422, 'Colombi', 'Chigorodo', 7.6769444, -76.6863861, 109.0);
-INSERT INTO cities (id, country, city, latitude, longitude, altitude) VALUES
+INSERT INTO cities (id, country, name, latitude, longitude, altitude) VALUES
 (2423, 'Colombi', 'El Carmen de Bolivar', 9.7222222, -75.1330566, 154.0),
 (2424, 'Colombi', 'Florida', 3.3275000, -76.2386093, 894.0),
 (2425, 'Colombi', 'Chiquinquira', 5.6188889, -73.8199997, 2713.0),
@@ -3241,7 +3241,7 @@ INSERT INTO cities (id, country, city, latitude, longitude, altitude) VALUES
 (3237, 'Netherlands', 'Gorinchem', 51.8325000, 4.9749999, 1.0),
 (3238, 'Netherlands', 'Uden', 51.6608330, 5.6194439, 18.0),
 (3239, 'Netherlands', 'Mijdrecht', 52.2066670, 4.8625002, -5.0);
-INSERT INTO cities (id, country, city, latitude, longitude, altitude) VALUES
+INSERT INTO cities (id, country, name, latitude, longitude, altitude) VALUES
 (3240, 'Netherlands', 'IJsselstein', 52.0200000, 5.0430560, 1.0),
 (3241, 'Netherlands', 'Epe', 52.3475000, 5.9833331, 12.0),
 (3242, 'Netherlands', 'Sneek', 53.0333333, 5.6666665, -1.0),
@@ -4073,7 +4073,7 @@ INSERT INTO cities (id, country, city, latitude, longitude, altitude) VALUES
 (4068, 'Germany', 'Tubingen', 48.5226590, 9.0522194, 338.0),
 (4069, 'Germany', 'Minden', 52.2833333, 8.9166670, 41.0),
 (4070, 'Ghana', 'Accra', 5.5500000, -0.2166667, 104.0);
-INSERT INTO cities (id, country, city, latitude, longitude, altitude) VALUES
+INSERT INTO cities (id, country, name, latitude, longitude, altitude) VALUES
 (4071, 'Ghana', 'Kumasi', 6.6833333, -1.6166667, 247.0),
 (4072, 'Ghana', 'Tamale', 9.4000000, -0.8333333, 152.0),
 (4073, 'Ghana', 'Takoradi', 4.8833333, -1.7500000, -9999.0),
@@ -4892,7 +4892,7 @@ INSERT INTO cities (id, country, city, latitude, longitude, altitude) VALUES
 (4886, 'Indonesia', 'Loa Janan', -0.5829520, 117.0950317, 1.0),
 (4887, 'Indonesia', 'Pematangsiantar', 2.9500000, 99.0500031, 438.0),
 (4888, 'Indonesia', 'Ciputat', -6.2375000, 106.6955566, 28.0);
-INSERT INTO cities (id, country, city, latitude, longitude, altitude) VALUES
+INSERT INTO cities (id, country, name, latitude, longitude, altitude) VALUES
 (4889, 'Indonesia', 'Ciampea', -6.5400000, 106.7102814, 112.0),
 (4890, 'Indonesia', 'Sumedang Utara', -6.8500000, 107.9166641, 565.0),
 (4891, 'Indonesia', 'Cileungsi', -6.3947222, 106.9591675, 102.0),
@@ -5733,7 +5733,7 @@ INSERT INTO cities (id, country, city, latitude, longitude, altitude) VALUES
 (5726, 'Kazakhstan', 'Maqat', 47.6500000, 53.3166656, -22.0),
 (5727, 'Kazakhstan', 'Saryozek', 44.3583333, 77.9752808, 943.0),
 (5728, 'Kazakhstan', 'Derzhavinsk', 51.1000000, 66.3166656, 227.0);
-INSERT INTO cities (id, country, city, latitude, longitude, altitude) VALUES
+INSERT INTO cities (id, country, name, latitude, longitude, altitude) VALUES
 (5729, 'Kazakhstan', 'Qarazhal', 48.0077778, 70.7902756, 449.0),
 (5730, 'Kazakhstan', 'Esil', 51.9555556, 66.4041672, 210.0),
 (5731, 'Kazakhstan', 'Shakhan', 49.8233333, 72.6341629, 457.0),
@@ -6559,7 +6559,7 @@ INSERT INTO cities (id, country, city, latitude, longitude, altitude) VALUES
 (6551, 'Mali', 'Funadhoo', 6.1500000, 73.2666702, -9999.0),
 (6552, 'Mali', 'Muli', 2.9166667, 73.5666656, -9999.0),
 (6553, 'Mali', 'Hithadhoo', 1.7833333, 73.3833313, -9999.0);
-INSERT INTO cities (id, country, city, latitude, longitude, altitude) VALUES
+INSERT INTO cities (id, country, name, latitude, longitude, altitude) VALUES
 (6554, 'Mali', 'Felidhoo', 3.4833333, 73.5333328, -9999.0),
 (6555, 'Mali', 'Magoodhoo', 3.1000000, 72.9666672, -9999.0),
 (6556, 'Mali', 'Nolhivaranfaru', 6.7017755, 73.1184769, -9999.0),
@@ -7370,7 +7370,7 @@ INSERT INTO cities (id, country, city, latitude, longitude, altitude) VALUES
 (7361, 'Norway', 'Chongjin', 41.7955556, 129.7758331, 4.0),
 (7362, 'Norway', 'Sinuiju', 40.1005556, 124.3980560, 1.0),
 (7363, 'Norway', 'Haeju', 38.0405556, 125.7147217, 46.0);
-INSERT INTO cities (id, country, city, latitude, longitude, altitude) VALUES
+INSERT INTO cities (id, country, name, latitude, longitude, altitude) VALUES
 (7364, 'Norway', 'Kanggye', 40.9872222, 126.6113892, 311.0),
 (7365, 'Norway', 'Sariwon', 38.5072222, 125.7558365, 15.0),
 (7366, 'Norway', 'Songnim', 38.7541667, 125.6449966, 14.0),
@@ -8182,7 +8182,7 @@ INSERT INTO cities (id, country, city, latitude, longitude, altitude) VALUES
 (8172, 'Portugal', 'Linda-a-Velha', 38.7166667, -9.2500000, 90.0),
 (8173, 'Portugal', 'Laranjeiro', 37.0666667, -7.8000002, 51.0),
 (8174, 'Portugal', 'Carcavelos', 38.6833333, -9.3333330, 17.0);
-INSERT INTO cities (id, country, city, latitude, longitude, altitude) VALUES
+INSERT INTO cities (id, country, name, latitude, longitude, altitude) VALUES
 (8175, 'Portugal', 'Camarate', 38.8000000, -9.1333332, 85.0),
 (8176, 'Portugal', 'Ponta Delgada', 37.7333333, -25.6666660, -9999.0),
 (8177, 'Portugal', 'Entroncamento', 39.4666667, -8.4666672, 49.0),
@@ -8979,7 +8979,7 @@ INSERT INTO cities (id, country, city, latitude, longitude, altitude) VALUES
 (8968, 'Korea, South', 'Waegwan', 35.9888889, 128.3972168, 28.0),
 (8969, 'Korea, South', 'Songhwan', 36.9155556, 127.1313858, 9.0),
 (8970, 'Korea, South', 'Chinyong', 35.3041667, 128.7316742, 20.0);
-INSERT INTO cities (id, country, city, latitude, longitude, altitude) VALUES
+INSERT INTO cities (id, country, name, latitude, longitude, altitude) VALUES
 (8971, 'Korea, South', 'Kosong', 34.9727778, 128.3236084, 4.0),
 (8972, 'Korea, South', 'Kanghwa', 37.7472222, 126.4855576, 12.0),
 (8973, 'Korea, South', 'Yongwol', 37.1872222, 128.4733276, 215.0),
@@ -9800,7 +9800,7 @@ INSERT INTO cities (id, country, city, latitude, longitude, altitude) VALUES
 (9788, 'Thailand', 'Nakhon Phanom', 17.4000000, 104.7833328, 140.0),
 (9789, 'Thailand', 'Satun', 6.6166667, 100.0666656, 18.0),
 (9790, 'Thailand', 'Prachuap Khiri Khan', 11.8209811, 99.7840958, 13.0);
-INSERT INTO cities (id, country, city, latitude, longitude, altitude) VALUES
+INSERT INTO cities (id, country, name, latitude, longitude, altitude) VALUES
 (9791, 'Thailand', 'San Kamphaeng', 18.7422222, 99.1224976, 296.0),
 (9792, 'Thailand', 'Prachin Buri', 14.0502778, 101.3702774, 23.0),
 (9793, 'Thailand', 'Krabi', 8.0666667, 98.9166641, 2.0),

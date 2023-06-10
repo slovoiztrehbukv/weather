@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/weather/one-week', [WeatherController::class, 'oneWeekByCoords']);
-Route::get('/weather/one-week/headers', [WeatherController::class, 'oneWeekTableHeaders']);
-Route::get('/cities', [CityController::class, 'list']);
+Route::get('/cities', [CityController::class, 'list'])->name('cities.chunk');
+
+Route::controller(WeatherController::class)->group(function() {
+    Route::post('/weather/one-week', 'oneWeekByCoords')->name('weather.week.rows');
+    Route::get('/weather/one-week/headers', 'oneWeekTableHeaders')->name('weather.week.headers');
+});
