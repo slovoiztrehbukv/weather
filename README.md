@@ -70,3 +70,7 @@ sail npx mix --production
 
 # 12.
 PROFIT
+
+____
+
+p.s. доку можно посмотреть по адресу http://localhost/docs
