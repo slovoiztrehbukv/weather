@@ -1,54 +1,75 @@
 <script>
-	import { onMount } from "svelte";
-    import {
-        Button,
-        Input,
-        Menu,
-        MenuItem,
-        Select,
-    } from 'agnostic-svelte';
+    import { onMount } from 'svelte';
+    import { Table } from "agnostic-svelte";
+    import Select from 'svelte-select';
     import 'agnostic-svelte/css/common.min.css';
 
-    let city = ''
+    const createRow = (
+        title,
+        day1,
+        day2,
+        day3,
+        day4,
+        day5,
+        day6,
+        day7
+    ) => ({
+        title,
+        day1,
+        day2,
+        day3,
+        day4,
+        day5,
+        day6,
+        day7
+    });
 
-    const cities = [
-        {
-            label: 'Saint-Petersburg',
-            value: 'spb',
-        },
-        {
-            label: 'Moscow',
-            value: 'moscow',
-        },
-        {
-            label: 'New-York',
-            value: 'ny',
-        },
-        {
-            label: 'Dubai',
-            value: 'dubai',
-        },
-    ]
+    let tableArgs = {
+        headers: [],
+        rows: [],
+    }
+
+
+    async function getCities(filterText) {
+        return (await fetch(`/api/cities?q=${filterText}`)).json();
+    }
 
     const updateData = val => {
-        fetch(`/api/weather/${val}`)
-            .then(res => res.text())
-            .then(res => city = res)
+        const [lat, lon] = val.split('|')
+
+        fetch(`/api/weather/one-week`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({
+                lat,
+                lon,
+            })
+        })
+            .then(res => res.json())
+            .then(rows => {tableArgs.rows = rows.map(r => createRow(r.name, ...r.data))})
     }
 
     onMount(() => {
-        //
-	});
+        fetch(`/api/weather/one-week/headers`)
+            .then(res => res.json())
+            .then(headers => {tableArgs.headers = headers})
+    })
 </script>
 
 <main>
-    current city is {city}
-    <Select
-        bind:selected={city}
-        on:selected={(e) => updateData(e.detail)}
-        uniqueId="sel1"
-        name="select1"
-        labelCopy="Select the best tennis player of all time"
-        options={cities}
-    />
+	<div class="container">
+		<h1>Weather</h1>
+		<h2>choose a city</h2>
+        <div class="black">
+            <Select
+                loadOptions={getCities}
+                on:select={e => updateData(e.detail.value)}
+            />
+        </div>
+        <div class="bg-white mt-2 p-1">
+            <Table {...tableArgs} />
+        </div>
+	</div>
 </main>

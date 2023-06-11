@@ -1,11 +1,13 @@
 <?php
 
-use App\Services\Weather\Sources\SevenTimer;
+use App\Services\Weather\Sources\OpenMeteo;
+use App\Services\Weather\Sources\NorwegianMeteorologicalInstitute;
 
 return [
     'sources' => [
         'enabled' => [
-            '7Timer' => SevenTimer::class,
+            NorwegianMeteorologicalInstitute::class,
+            OpenMeteo::class,
         ]
     ]
 ];

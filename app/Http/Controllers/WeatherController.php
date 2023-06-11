@@ -2,14 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\Weather\Sources\SevenTimer;
+use App\Services\Weather\Table\Helper as TableHelper;
+use App\Http\Requests\GetWeatherByCoordsRequest;
 use App\Services\Weather\WeatherCompositionService;
-use Illuminate\Http\Request;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class WeatherController extends Controller
 {
-    public function city(string $city, WeatherCompositionService $weatherService)
+
+    /**
+    * @apiResourceCollection  App\Http\Resources\OneWeekTableRow
+    */
+    public function oneWeekByCoords(GetWeatherByCoordsRequest $request, WeatherCompositionService $weatherService)
     {
-        return response()->json($weatherService->getCityDatas($city));
+        try {
+            return $weatherService->getOneWeekPlaceDatas(
+                $request->post('lat'),
+                $request->post('lon'),
+            );
+        } catch (\Throwable $e) {
+            return response($e->getMessage(), 400);
+        }
+    }
+
+    public function oneWeekTableHeaders()
+    {
+        return TableHelper::getOneWeekTableHeaders();
     }
 }
