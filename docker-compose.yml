@@ -1,7 +1,7 @@
 # For more information: https://laravel.com/docs/sail
 version: '3'
 services:
-    laravel.test:
+    laravel.weather:
         build:
             context: ./vendor/laravel/sail/runtimes/8.2
             dockerfile: Dockerfile
@@ -24,7 +24,6 @@ services:
             - sail
         depends_on:
             - pgsql
-            # - elasticsearch
     pgsql:
         image: 'postgres:15'
         ports:
@@ -43,22 +42,9 @@ services:
             test: ["CMD", "pg_isready", "-q", "-d", "${DB_DATABASE}", "-U", "${DB_USERNAME}"]
             retries: 3
             timeout: 5s
-    # elasticsearch:
-    #     image: docker.elastic.co/elasticsearch/elasticsearch:8.3.2
-    #     environment:
-    #         - discovery.type=single-node
-    #     ports:
-    #         - 9200:9200
-    #         - 9300:9300
-    #     volumes:
-    #         - sailelasticsearch:/usr/share/elasticsearch/data
-    #     networks:
-    #         - sail
 networks:
     sail:
         driver: bridge
 volumes:
     sail-pgsql:
         driver: local
-    # sailelasticsearch:
-    #      driver: local
